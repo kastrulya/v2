@@ -120,27 +120,8 @@ namespace v2
        
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-                Node node = Node.findNodeWithCoord(createGraph.getNodes(), e.Location.X, e.Location.Y);
-                if (createGraph.startOrEndOfEdge == 1)
-                {
-                    createGraph.choose2 = node.label.Text;
-                    createGraph.x2 = e.Location.X;
-                    createGraph.y2 = e.Location.Y;
-                    node.label.Text = "♥";
-                    createGraph.chooseNodes[1] = node;
-                    Edge edge = createGraph.createEdge(createGraph.chooseNodes);
-                    edge.drawEdge(pictureBox1);
-                }
-                else if (createGraph.startOrEndOfEdge == 0)
-                {
-                    createGraph.choose1 = node.label.Text;
-                    createGraph.x1 = e.Location.X;
-                    createGraph.y1 = e.Location.Y;
-                    node.label.Text = "♥";
-                    createGraph.chooseNodes[0] = node;
-                    createGraph.startOrEndOfEdge = 1;
-                }
-          }
+            createGraph.chooseNode(pictureBox1, e.Location.X, e.Location.Y);
+        }
 
     }
 }

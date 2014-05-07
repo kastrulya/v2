@@ -50,9 +50,9 @@ namespace v2
 
         public Node createNode(float x, float y, int n)
         {
-            if (Node.checkFreePlace(nodes, x - Node.size/2, y - Node.size/2) == true)
+            if (Node.checkFreePlace(nodes, x , y) == true)
             {
-                PointF point = new PointF(x - Node.size/2, y - Node.size/2);
+                PointF point = new PointF(x , y);
                 Node node = new Node(point, Convert.ToString(n));
                 addNode(node);
                 return node;
@@ -81,5 +81,36 @@ namespace v2
             startOrEndOfEdge = 0;
             return edge;
         }
+        public void chooseNode(PictureBox panel, float x, float y)
+        {
+            Node node = Node.findNodeWithCoord(getNodes(), x, y);
+            if (startOrEndOfEdge == 1)
+            {
+                if (node.label.Text != "♥")
+                {
+                    choose2 = node.label.Text;
+                    x2 = x;
+                    y2 = y;
+                    node.label.Text = "♥";
+                    chooseNodes[1] = node;
+                    Edge edge = createEdge(chooseNodes);
+                    edge.drawEdge(panel);
+                }
+                else {
+                    node.label.Text = choose1;
+                    startOrEndOfEdge = 0;
+                }
+            }
+            else if (startOrEndOfEdge == 0)
+            {
+                choose1 = node.label.Text;
+                x1 = x;
+                y1 = y;
+                node.label.Text = "♥";
+                chooseNodes[0] = node;
+                startOrEndOfEdge = 1;
+           }
+        }
+
     }
 }

@@ -40,8 +40,8 @@ namespace v2
         {
             for (int i = 0; i < nodes.Length; i++)
             {
-                if(x >= nodes[i].location.X - size/2 && x <= nodes[i].location.X + size/2 &&
-                    y <= nodes[i].location.Y + size/2 && y >= nodes[i].location.Y - size/2)
+                if(x >= nodes[i].location.X && x <= nodes[i].location.X + size &&
+                    y <= nodes[i].location.Y + size && y >= nodes[i].location.Y)
                     return nodes[i];
             }
             return null;
