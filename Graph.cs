@@ -12,10 +12,10 @@ namespace v2
     {
         public int numberOfEdges { get; set; }
         public int[][] data{get; set; }
-        public Node[] nodes;//{get; set; }
+        public Node[] nodes;
         public Edge[] edges{get; set; }
         public PointF[] point { get; set; }
-        public DataGridView inputMatrix;
+//        public DataGridView inputMatrix;
 
         public Graph(Node[] nodes, Edge[] edges)
         {
@@ -39,10 +39,10 @@ namespace v2
             matrix.ReadOnly = true;
         }
 
-        public Graph(int[][] data )
+        public Graph(DataGridView inputMatrix, int[][] data )
         {
             this.data = data;
-            inputMatrix = new DataGridView();
+//            inputMatrix = new DataGridView();
             SystemFunction.tableSettings(inputMatrix);
             fillMatrix(inputMatrix);
             point = SystemFunction.polarPoint(data, 130);
@@ -61,7 +61,7 @@ namespace v2
                 for (int j = 0; j < data.Length; j++)
                     if (data[i][j] != -1)
                     {
-                        edges[k] = new Edge(point[i], point[j], data[i][j]);
+                        edges[k] = new Edge(ref nodes[i],ref nodes[j], data[i][j]);
                         k++;
                     }
            /*---------------------------------------------------------------*/

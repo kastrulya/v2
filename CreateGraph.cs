@@ -18,7 +18,7 @@ namespace v2
         public string choose1, choose2;
         public Node[] chooseNodes;
 
-        public CreateGraph()
+        public CreateGraph(ref DataGridView matrix)
         {
             nodes = new Node[0];
             edges = new Edge[0];
@@ -26,7 +26,7 @@ namespace v2
             numEdges = 0;
             startOrEndOfEdge = 0;
             chooseNodes = new Node[2];
-            matrix = new DataGridView();
+            this.matrix = matrix;
             SystemFunction.tableSettings(matrix);
         }
 
@@ -74,13 +74,14 @@ namespace v2
         {
             PointF point1 = new PointF(x1, y1);
             PointF point2 = new PointF(x2, y2);
-            Edge edge = new Edge(chooseNodes[0].label.Location,chooseNodes[1].label.Location, 1);
+            Edge edge = new Edge(ref chooseNodes[0],ref chooseNodes[1], 1);
             addEdge(edge);
             Node.findNodeWithCoord(nodes, x1, y1).label.Text = choose1;
             Node.findNodeWithCoord(nodes, x2, y2).label.Text = choose2;
             startOrEndOfEdge = 0;
             return edge;
         }
+        
         public void chooseNode(PictureBox panel, float x, float y)
         {
             Node node = Node.findNodeWithCoord(getNodes(), x, y);
@@ -111,6 +112,5 @@ namespace v2
                 startOrEndOfEdge = 1;
            }
         }
-
     }
 }

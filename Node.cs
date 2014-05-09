@@ -12,7 +12,7 @@ namespace v2
     {
         public Color colorNode { get; set; }
         public Label label { get; set; }
-        PointF location;
+        public PointF location;
         public static float size = 40; // size of node
 
         public Node() { }
