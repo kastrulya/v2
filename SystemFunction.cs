@@ -100,5 +100,14 @@ namespace v2
             for (int i = 0; i < graph.numberOfEdges; i++)
                 graph.edges[i].drawEdge(panel);
         }
+
+        //public static void clearAll(v2.Form1 form1, PictureBox pictureBox, DataGridView dgwMatrix, Graph graph)
+        //{
+        //    graph = null;
+        //    dgwMatrix.Rows.Clear();
+        //    pictureBox.Controls.Clear();
+        //    pictureBox.Refresh();
+        //    form1.Controls.Remove(dgwMatrix);
+        //}
     }
 }

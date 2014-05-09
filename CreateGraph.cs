@@ -85,32 +85,36 @@ namespace v2
         public void chooseNode(PictureBox panel, float x, float y)
         {
             Node node = Node.findNodeWithCoord(getNodes(), x, y);
-            if (startOrEndOfEdge == 1)
+            if (node != null)
             {
-                if (node.label.Text != "♥")
+                if (startOrEndOfEdge == 1)
                 {
-                    choose2 = node.label.Text;
-                    x2 = x;
-                    y2 = y;
-                    node.label.Text = "♥";
-                    chooseNodes[1] = node;
-                    Edge edge = createEdge(chooseNodes, 1);
-                    edge.drawEdge(panel);
+                    if (node.label.Text != "♥")
+                    {
+                        choose2 = node.label.Text;
+                        x2 = x;
+                        y2 = y;
+                        node.label.Text = "♥";
+                        chooseNodes[1] = node;
+                        Edge edge = createEdge(chooseNodes, 1);
+                        edge.drawEdge(panel);
+                    }
+                    else
+                    {
+                        node.label.Text = choose1;
+                        startOrEndOfEdge = 0;
+                    }
                 }
-                else {
-                    node.label.Text = choose1;
-                    startOrEndOfEdge = 0;
+                else if (startOrEndOfEdge == 0)
+                {
+                    choose1 = node.label.Text;
+                    x1 = x;
+                    y1 = y;
+                    node.label.Text = "♥";
+                    chooseNodes[0] = node;
+                    startOrEndOfEdge = 1;
                 }
             }
-            else if (startOrEndOfEdge == 0)
-            {
-                choose1 = node.label.Text;
-                x1 = x;
-                y1 = y;
-                node.label.Text = "♥";
-                chooseNodes[0] = node;
-                startOrEndOfEdge = 1;
-           }
         }
     }
 }

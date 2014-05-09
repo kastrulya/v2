@@ -16,6 +16,7 @@ namespace v2
 
         CreateGraph createGraph;
         Graph graph;
+        Button saveGraph;
 
         public Form1()
         {
@@ -44,6 +45,8 @@ namespace v2
 
         private void downloadFromFile_Click(object sender, EventArgs e)
         {
+            //buttonClear.PerformClick();
+            //buttonClear_Click();
             graph = new Graph(this.dgwMatrix, SystemFunction.readFile());
             dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
             SystemFunction.drawGraph(pictureBox1, graph);
@@ -58,6 +61,21 @@ namespace v2
             pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             CreateGraph createGraph = new CreateGraph(ref this.dgwMatrix);
             dgwMatrix.CellValueChanged += new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
+            saveGraph = new Button();
+            saveGraph.Location = new Point(drawGraph.Location.X + 200, drawGraph.Location.Y);
+            saveGraph.Text = "Зберегти";
+            saveGraph.BackColor = Color.PowderBlue;
+            this.Controls.Add(saveGraph);
+            graph = new Graph(createGraph.getNodes(), createGraph.getEdges());
+            saveGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonSave_Click);
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            graph = new Graph(createGraph.getNodes(), createGraph.getEdges());
+            pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.Controls.Remove(saveGraph);
+            saveGraph = null;
         }
 
         private void Deijkstra_Click(object sender, EventArgs e)
