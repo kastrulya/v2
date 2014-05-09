@@ -116,7 +116,7 @@ namespace v2
             float y = e.Location.Y;
             Node node = createGraph.createNode(x, y, createGraph.numNodes);
             if (node != null) node.drawNode(pictureBox1);
-            this.Controls.Add(createGraph.matrix);
+             this.Controls.Add(createGraph.matrix);
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -126,7 +126,22 @@ namespace v2
 
         private void matrix_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-
+            Edge[] edges = createGraph.getEdges();
+            if (e.ColumnIndex >= 0)
+            {
+                Node node1 = createGraph.getNodes()[e.RowIndex];
+                Node node2 = createGraph.getNodes()[e.ColumnIndex];
+                Edge edge = Edge.findEdge(edges, node2, node1);
+                int weigth = Convert.ToInt32(dgwMatrix.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                if (edge != null)
+                    Edge.putWeigth(pictureBox1, edge, weigth);
+                else
+                {
+                    edge = new Edge(ref node1, ref node2, weigth);
+                    createGraph.addEdge(edge);
+                    edge.drawEdge(pictureBox1);
+                }
+            }
         }
 
         private void dgwMatrix_CellValueChanged(object sender, DataGridViewCellEventArgs e)

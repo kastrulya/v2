@@ -13,7 +13,7 @@ namespace v2
         public Color colorEdge { get; set; }
         public Label label { get; set; }
         Node startNode, endNode;
-        int weightEdge;
+        public int weightEdge;
 
         public Edge(ref Node node1, ref Node node2, int weight) 
         {

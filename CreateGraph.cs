@@ -67,14 +67,14 @@ namespace v2
             numEdges++;
             int row = Convert.ToInt32(choose1);
             int cell = Convert.ToInt32(choose2);
-            matrix.Rows[row].Cells[cell].Value = 1;
+            matrix.Rows[row].Cells[cell].Value = edge.weightEdge;
         }
 
-        public Edge createEdge(Node[] chooseNodes)
+        public Edge createEdge(Node[] chooseNodes, int weigth)
         {
             PointF point1 = new PointF(x1, y1);
             PointF point2 = new PointF(x2, y2);
-            Edge edge = new Edge(ref chooseNodes[0],ref chooseNodes[1], 1);
+            Edge edge = new Edge(ref chooseNodes[0],ref chooseNodes[1], weigth);
             addEdge(edge);
             Node.findNodeWithCoord(nodes, x1, y1).label.Text = choose1;
             Node.findNodeWithCoord(nodes, x2, y2).label.Text = choose2;
@@ -94,7 +94,7 @@ namespace v2
                     y2 = y;
                     node.label.Text = "♥";
                     chooseNodes[1] = node;
-                    Edge edge = createEdge(chooseNodes);
+                    Edge edge = createEdge(chooseNodes, 1);
                     edge.drawEdge(panel);
                 }
                 else {
