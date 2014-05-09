@@ -15,22 +15,13 @@ namespace v2
     {
 
         CreateGraph createGraph;
+        Graph graph;
 
         public Form1()
         {
             InitializeComponent();
             createGraph = new CreateGraph(ref this.dgwMatrix);
             //           Graph graph = new Graph();
-        }
-
-        private void buttonLoadGraph_Click(object sender, EventArgs e)
-        {
-            //           SystemFunction.outputGraph(graphData, SystemFunction.readFile());
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonDeijkstra_Click(object sender, EventArgs e)
@@ -53,10 +44,10 @@ namespace v2
 
         private void downloadFromFile_Click(object sender, EventArgs e)
         {
-            Graph graph = new Graph(this.dgwMatrix, SystemFunction.readFile());
+            graph = new Graph(this.dgwMatrix, SystemFunction.readFile());
             dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
             SystemFunction.drawGraph(pictureBox1, graph);
-            //this.Controls.Add(graph.inputMatrix);
+            this.Controls.Add(dgwMatrix);
             pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
            
         }
@@ -89,26 +80,14 @@ namespace v2
 
         }
 
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e)
         {
-
+            graph = null;
+            dgwMatrix.Rows.Clear();
+            pictureBox1.Controls.Clear();
+            pictureBox1.Refresh();
+            this.Controls.Remove(dgwMatrix);
         }
-
-        private void graphDeijkstra_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //           graphData.Items.Clear();
-            //           SystemFunction.clearGraph(pictureBox1, graph);
-        }//clear
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)//draw node
         {
@@ -131,7 +110,7 @@ namespace v2
             {
                 Node node1 = createGraph.getNodes()[e.RowIndex];
                 Node node2 = createGraph.getNodes()[e.ColumnIndex];
-                Edge edge = Edge.findEdge(edges, node2, node1);
+                Edge edge = Edge.findEdge(edges, node1, node2);
                 int weigth = Convert.ToInt32(dgwMatrix.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
                 if (edge != null)
                     Edge.putWeigth(pictureBox1, edge, weigth);

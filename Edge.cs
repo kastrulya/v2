@@ -36,7 +36,7 @@ namespace v2
             panel.Controls.Add(label);
         }
 
-        public static Edge findEdge(Edge[] edges, Node node2, Node node1)
+        public static Edge findEdge(Edge[] edges, Node node1, Node node2)
         {
             for (int i = 0; i < edges.Length; i++)
                 if (edges[i].startNode.label.Text == node1.label.Text && edges[i].endNode.label.Text == node2.label.Text)

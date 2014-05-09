@@ -100,25 +100,5 @@ namespace v2
             for (int i = 0; i < graph.numberOfEdges; i++)
                 graph.edges[i].drawEdge(panel);
         }
-
-        public static void clearGraph(PictureBox panel, Graph graph)
-        {
-            panel.Image = null;
-            for (int i = 0; i < graph.nodes.Length; i++)
-                graph.nodes[i].label.Text = null;
-            for (int i = 0; i < graph.edges.Length; i++)
-                graph.edges[i].label.Text = null;
-            graph = null;
-            panel.Dispose();
-            panel = new PictureBox();
-
-            
-        }
-
-        //public static void addNode(Node[] nodes, PointF point)
-        //{
-        //    Array.Resize(ref nodes, nodes.Length + 1);
-        //    nodes[nodes.Length - 1] = new Node(point);
-        //}
     }
 }
