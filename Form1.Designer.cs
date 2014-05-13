@@ -33,6 +33,9 @@
             this.dgwMatrix = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.drawGraph = new System.Windows.Forms.Button();
+            this.bttnDeijkstra = new System.Windows.Forms.Button();
+            this.bttnFloyd = new System.Windows.Forms.Button();
+            this.bttnFord = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).BeginInit();
             this.SuspendLayout();
@@ -44,14 +47,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(198, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(359, 335);
+            this.pictureBox1.Size = new System.Drawing.Size(486, 335);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // buttonClear
             // 
             this.buttonClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonClear.Location = new System.Drawing.Point(464, 369);
+            this.buttonClear.Location = new System.Drawing.Point(592, 369);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(95, 23);
             this.buttonClear.TabIndex = 7;
@@ -75,7 +78,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(0, 2);
+            this.button2.Location = new System.Drawing.Point(12, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(162, 23);
             this.button2.TabIndex = 9;
@@ -85,7 +88,7 @@
             // 
             // drawGraph
             // 
-            this.drawGraph.Location = new System.Drawing.Point(188, 2);
+            this.drawGraph.Location = new System.Drawing.Point(223, 2);
             this.drawGraph.Name = "drawGraph";
             this.drawGraph.Size = new System.Drawing.Size(165, 23);
             this.drawGraph.TabIndex = 10;
@@ -93,11 +96,42 @@
             this.drawGraph.UseVisualStyleBackColor = true;
             this.drawGraph.Click += new System.EventHandler(this.drawGraph_Click);
             // 
+            // bttnDeijkstra
+            // 
+            this.bttnDeijkstra.Location = new System.Drawing.Point(12, 369);
+            this.bttnDeijkstra.Name = "bttnDeijkstra";
+            this.bttnDeijkstra.Size = new System.Drawing.Size(138, 23);
+            this.bttnDeijkstra.TabIndex = 11;
+            this.bttnDeijkstra.Text = "Алгоритм Дейкстри";
+            this.bttnDeijkstra.UseVisualStyleBackColor = true;
+            this.bttnDeijkstra.Click += new System.EventHandler(this.Deijkstra_Click);
+            // 
+            // bttnFloyd
+            // 
+            this.bttnFloyd.Location = new System.Drawing.Point(168, 369);
+            this.bttnFloyd.Name = "bttnFloyd";
+            this.bttnFloyd.Size = new System.Drawing.Size(169, 23);
+            this.bttnFloyd.TabIndex = 12;
+            this.bttnFloyd.Text = "Алгоритм Флойда-Уоршалла";
+            this.bttnFloyd.UseVisualStyleBackColor = true;
+            // 
+            // bttnFord
+            // 
+            this.bttnFord.Location = new System.Drawing.Point(355, 369);
+            this.bttnFord.Name = "bttnFord";
+            this.bttnFord.Size = new System.Drawing.Size(157, 23);
+            this.bttnFord.TabIndex = 13;
+            this.bttnFord.Text = "Алгоритм Белмана-Форда";
+            this.bttnFord.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 394);
+            this.ClientSize = new System.Drawing.Size(696, 394);
+            this.Controls.Add(this.bttnFord);
+            this.Controls.Add(this.bttnFloyd);
+            this.Controls.Add(this.bttnDeijkstra);
             this.Controls.Add(this.drawGraph);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dgwMatrix);
@@ -119,6 +153,9 @@
         private System.Windows.Forms.DataGridView dgwMatrix;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button drawGraph;
+        private System.Windows.Forms.Button bttnDeijkstra;
+        private System.Windows.Forms.Button bttnFloyd;
+        private System.Windows.Forms.Button bttnFord;
     }
 }
 

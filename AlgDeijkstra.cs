@@ -27,7 +27,7 @@ namespace v2
             return minIndex;
         }
 
-        public static string deijkstra(int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
+        public static string deijkstra(PictureBox pictureBox1, int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
         {
             int size = node.Length;
             int[][]visitedNode = new int[size][];
@@ -48,13 +48,17 @@ namespace v2
                     if (graph[currNode][i] != -1 && visitedNode[i][1] != 1) // check if the nodes(currNode and i) are connected
                     {
                         node[i].setColor(Color.YellowGreen);
-                       // edge[i].label.BackColor = Color.YellowGreen;
+                        edge[i].label.BackColor = Color.YellowGreen;
                         int possible = visitedNode[currNode][0] + graph[currNode][i];
                         if (visitedNode[i][0] > possible)
                         {
                             visitedNode[i][0] = possible;
                             node[i].label.Text = Convert.ToString(possible);
                         }
+                        node[i].drawNode(pictureBox1);
+                        edge[i].drawEdge(pictureBox1);
+
+                        System.Threading.Thread.Sleep(250);
                     }
                 visitedNode[currNode][1] = 1;
                 currNode = findNextNode(visitedNode);
@@ -73,7 +77,7 @@ namespace v2
             {
                 Edge[] edge = graph.edges;
                 Node[] node = graph.nodes;
-                ans[i] = deijkstra(i, ref edge, ref node, graph.data);
+                //ans[i] = deijkstra(i, ref edge, ref node, graph.data);
                 graphDeijkstra.Items.Add(ans[i]);
                 SystemFunction.drawGraph(pictureBox1, graph);
                 // Thread.Sleep(1000);

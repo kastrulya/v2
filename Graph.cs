@@ -10,11 +10,11 @@ namespace v2
 {
     class Graph
     {
-        public int numberOfEdges { get; set; }
-        public int[][] data{get; set; }
+        public int numberOfEdges;
+        public int[][] data;
         public Node[] nodes;
-        public Edge[] edges{get; set; }
-        public PointF[] point { get; set; }
+        public Edge[] edges;
+        public PointF[] point;
 //        public DataGridView inputMatrix;
 
         public Graph(Node[] nodes, Edge[] edges)

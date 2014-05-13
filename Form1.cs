@@ -82,17 +82,15 @@ namespace v2
 
         private void Deijkstra_Click(object sender, EventArgs e)
         {
-            //Graph graph = new Graph(SystemFunction.readFile());
-            //string[] ans = new string[graph.data.Length];
-            //for (int i = 0; i < graph.data.Length; i++)
-            //{
-            //    Edge[] edge = graph.edges;
-            //    Node[] node = graph.nodes;
-            //    ans[i] = AlgDeijkstra.deijkstra(i, ref edge, ref node, graph.data);
-            //    //graphDeijkstra.Items.Add(ans[i]);
-            //    SystemFunction.drawGraph(pictureBox1, graph);
-            //    Thread.Sleep(1000);
-            //}
+            string[] ans = new string[graph.data.Length];
+            for (int i = 0; i < graph.data.Length; i++)
+            {
+                graph.nodes[i].setColor(Color.DarkOrchid);
+                ans[i] = AlgDeijkstra.deijkstra(pictureBox1 ,i, ref graph.edges, ref graph.nodes, graph.data);
+                //graphDeijkstra.Items.Add(ans[i]);
+                SystemFunction.drawGraph(pictureBox1, graph);
+                Thread.Sleep(1000);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
