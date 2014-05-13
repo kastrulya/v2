@@ -74,6 +74,8 @@ namespace v2
         {
             graph = new Graph(createGraph.getNodes(), createGraph.getEdges());
             pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
+            dgwMatrix.ReadOnly = true;
             this.Controls.Remove(saveGraph);
             saveGraph = null;
         }
@@ -111,9 +113,9 @@ namespace v2
         {
             float x = e.Location.X;
             float y = e.Location.Y;
-            Node node = createGraph.createNode(x, y, createGraph.numNodes);
+            Node node = createGraph.createNode(x, y, createGraph.getNodes().Length);// createGraph.numNodes);
             if (node != null) node.drawNode(pictureBox1);
-             this.Controls.Add(createGraph.matrix);
+             this.Controls.Add(createGraph.getMatrix());
         }
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -47,7 +47,7 @@ namespace v2
                 for (int i = 0; i < size; i++)
                     if (graph[currNode][i] != -1 && visitedNode[i][1] != 1) // check if the nodes(currNode and i) are connected
                     {
-                        node[i].colorNode = Color.YellowGreen;
+                        node[i].setColor(Color.YellowGreen);
                        // edge[i].label.BackColor = Color.YellowGreen;
                         int possible = visitedNode[currNode][0] + graph[currNode][i];
                         if (visitedNode[i][0] > possible)

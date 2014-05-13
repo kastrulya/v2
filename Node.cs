@@ -10,8 +10,8 @@ namespace v2
 {
     class Node
     {
-        public Color colorNode { get; set; }
-        public Label label { get; set; }
+        Color colorNode;
+        public Label label;
         public PointF location;
         public static float size = 40; // size of node
 
@@ -26,6 +26,9 @@ namespace v2
             this.colorNode = Color.Coral;
             this.location = location;
         }
+
+        public void setColor(Color color)
+        {   this.colorNode = color; }
 
         public void drawNode(PictureBox panel)
         {
@@ -55,7 +58,5 @@ namespace v2
                     return false;
             return true;
         }
-
-
     }
 }

@@ -9,26 +9,27 @@ namespace v2
 {
     class CreateGraph
     {
-        public int startOrEndOfEdge; // start - 0, end - 1;
-        public int numEdges, numNodes;
-        public float x1, x2, y1, y2;
+        private int startOrEndOfEdge; // start - 0, end - 1;
+        float x1, x2, y1, y2;
         Node[] nodes;
         Edge[] edges;
-        public DataGridView matrix;
-        public string choose1, choose2;
+        DataGridView matrix;
+        string choose1, choose2;
         public Node[] chooseNodes;
 
+        
         public CreateGraph(ref DataGridView matrix)
         {
             nodes = new Node[0];
             edges = new Edge[0];
-            numNodes = 0;
-            numEdges = 0;
             startOrEndOfEdge = 0;
             chooseNodes = new Node[2];
             this.matrix = matrix;
             SystemFunction.tableSettings(matrix);
         }
+
+        public DataGridView getMatrix()
+        { return matrix; }
 
         public Node[] getNodes()
         { return nodes; }
@@ -40,12 +41,11 @@ namespace v2
         {
             Array.Resize(ref nodes, nodes.Length + 1);
             nodes[nodes.Length - 1] = n;
-            numNodes++;
             matrix.Columns.Add("c" + n.label.Text, n.label.Text);
-            for (int i = 0; i < numNodes; i++)
-                matrix.Columns[i].Width = 132 / numNodes;
+            for (int i = 0; i < nodes.Length; i++)
+                matrix.Columns[i].Width = 132 / nodes.Length;
             matrix.Rows.Add();
-            matrix.Rows[numNodes - 1].HeaderCell.Value = n.label.Text;
+            matrix.Rows[nodes.Length - 1].HeaderCell.Value = n.label.Text;
         }
 
         public Node createNode(float x, float y, int n)
@@ -64,7 +64,6 @@ namespace v2
         {
             Array.Resize(ref edges, edges.Length + 1);
             edges[edges.Length - 1] = edge;
-            numEdges++;
             int row = Convert.ToInt32(choose1);
             int cell = Convert.ToInt32(choose2);
             matrix.Rows[row].Cells[cell].Value = edge.weightEdge;

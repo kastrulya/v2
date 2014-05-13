@@ -21,6 +21,15 @@ namespace v2
         {
             this.nodes = nodes;
             this.edges = edges;
+            data = new int[nodes.Length][];
+            for (int i = 0; i < data.Length; i++)
+                data[i] = new int[data.Length];
+            for (int i = 0; i < data.Length; i++)
+                for (int j = 0; j < data.Length; j++)
+                    data[i][j] = -1;
+            for(int i = 0; i < edges.Length; i++)
+                data[Convert.ToInt32(edges[i].startNode.label.Text)]
+                    [Convert.ToInt32(edges[i].startNode.label.Text)] = edges[i].weightEdge;
         }
 
         private void fillMatrix(DataGridView matrix)
