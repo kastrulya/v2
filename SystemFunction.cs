@@ -52,9 +52,9 @@ namespace v2
 
         public static void tableSettings(DataGridView matrix)
         {
-            matrix.Location = new Point(10, 50);
-            matrix.Width = 190;
-            matrix.AllowUserToAddRows = false;
+        //    matrix.Location = new Point(10, 50);
+        //    matrix.Width = 190;
+        //    matrix.AllowUserToAddRows = false;
         }
 
         public static int numberEdge(int[][] graph)

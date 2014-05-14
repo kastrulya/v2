@@ -25,7 +25,6 @@ namespace v2
             startOrEndOfEdge = 0;
             chooseNodes = new Node[2];
             this.matrix = matrix;
-            SystemFunction.tableSettings(matrix);
         }
 
         public DataGridView getMatrix()
@@ -43,7 +42,7 @@ namespace v2
             nodes[nodes.Length - 1] = n;
             matrix.Columns.Add("c" + n.label.Text, n.label.Text);
             for (int i = 0; i < nodes.Length; i++)
-                matrix.Columns[i].Width = 132 / nodes.Length;
+                matrix.Columns[i].Width = matrix.Width / (nodes.Length + 1);
             matrix.Rows.Add();
             matrix.Rows[nodes.Length - 1].HeaderCell.Value = n.label.Text;
         }

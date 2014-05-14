@@ -38,7 +38,7 @@ namespace v2
             for (int i = 0; i < data.Length; i++)
             {
                 matrix.Columns[i].Name = Convert.ToString(i);
-                matrix.Columns[i].Width = 132 / data.Length; ;
+                matrix.Columns[i].Width = matrix.Width / (data.Length+1) ;
                 matrix.Rows.Add();
                 matrix.Rows[i].HeaderCell.Value = Convert.ToString(i);
             }
@@ -52,7 +52,7 @@ namespace v2
         {
             this.data = data;
 //            inputMatrix = new DataGridView();
-            SystemFunction.tableSettings(inputMatrix);
+           // SystemFunction.tableSettings(inputMatrix);
             fillMatrix(inputMatrix);
             point = SystemFunction.polarPoint(data, 130);
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading;
 namespace v2
 {
     class AlgDeijkstra
@@ -27,7 +28,7 @@ namespace v2
             return minIndex;
         }
 
-        public static string deijkstra(PictureBox pictureBox1, int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
+        public static /*string*/int[] deijkstra(PictureBox pictureBox1, int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
         {
             int size = node.Length;
             int[][]visitedNode = new int[size][];
@@ -48,6 +49,7 @@ namespace v2
                     if (graph[currNode][i] != -1 && visitedNode[i][1] != 1) // check if the nodes(currNode and i) are connected
                     {
                         node[i].setColor(Color.YellowGreen);
+                        node[i].label.BackColor = Color.YellowGreen;
                         edge[i].label.BackColor = Color.YellowGreen;
                         int possible = visitedNode[currNode][0] + graph[currNode][i];
                         if (visitedNode[i][0] > possible)
@@ -58,29 +60,41 @@ namespace v2
                         node[i].drawNode(pictureBox1);
                         edge[i].drawEdge(pictureBox1);
 
-                        System.Threading.Thread.Sleep(250);
+                        Thread.Sleep(250);
                     }
                 visitedNode[currNode][1] = 1;
                 currNode = findNextNode(visitedNode);
             }while(currNode != -1);
             
-            string answer = "";
+            //string answer = "";
+            int[] answer = new int[size];
             for (int i = 0; i < size; i++)
-                answer += Convert.ToString(visitedNode[i][0]) + " ";
-            return answer;
+                answer[i] = visitedNode[i][0];
+                //answer += Convert.ToString(visitedNode[i][0]) + " ";
+            return answer;// visitedNode;
         }
 
-        public static void algDeijkstra(Graph graph, PictureBox pictureBox1, ListBox graphDeijkstra)
+        public static void algDeijkstra(PictureBox pictureBox1, Graph graph, DataGridView matrix)
         {
-            string[] ans = new string[graph.data.Length];
+           // string[][] ans = new string[graph.data.Length];
+            matrix.ColumnCount = graph.nodes.Length;
+            for (int i = 0; i < graph.nodes.Length; i++)
+            {
+                matrix.Columns[i].Name = Convert.ToString(i);
+                matrix.Columns[i].Width = matrix.Width / (graph.nodes.Length + 1) ;
+                matrix.Rows.Add();
+            }
+            int[][] ans = new int[graph.nodes.Length][];
+            
             for (int i = 0; i < graph.data.Length; i++)
             {
                 Edge[] edge = graph.edges;
                 Node[] node = graph.nodes;
-                //ans[i] = deijkstra(i, ref edge, ref node, graph.data);
-                graphDeijkstra.Items.Add(ans[i]);
-                SystemFunction.drawGraph(pictureBox1, graph);
-                // Thread.Sleep(1000);
+                ans[i] = deijkstra(pictureBox1, i, ref edge, ref node, graph.data);
+                for (int j = 0; j < ans.Length; j++)
+                    matrix.Rows[i].Cells[j].Value = Convert.ToString(ans[i][j]);
+                //SystemFunction.drawGraph(pictureBox1, graph);
+                //Thread.Sleep(500);
             }
         }
     }

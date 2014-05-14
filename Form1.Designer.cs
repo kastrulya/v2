@@ -36,27 +36,38 @@
             this.bttnDeijkstra = new System.Windows.Forms.Button();
             this.bttnFloyd = new System.Windows.Forms.Button();
             this.bttnFord = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.saveGraph = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgwOutput = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(198, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(244, 131);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(486, 335);
+            this.pictureBox1.Size = new System.Drawing.Size(504, 362);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // buttonClear
             // 
-            this.buttonClear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonClear.Location = new System.Drawing.Point(592, 369);
+            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClear.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.ForeColor = System.Drawing.Color.White;
+            this.buttonClear.Location = new System.Drawing.Point(461, 401);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(95, 23);
+            this.buttonClear.Size = new System.Drawing.Size(67, 30);
             this.buttonClear.TabIndex = 7;
             this.buttonClear.Text = "Очистити екран";
             this.buttonClear.UseVisualStyleBackColor = false;
@@ -64,84 +75,164 @@
             // 
             // dgwMatrix
             // 
-            this.dgwMatrix.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgwMatrix.AllowUserToAddRows = false;
+            this.dgwMatrix.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgwMatrix.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgwMatrix.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgwMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwMatrix.Location = new System.Drawing.Point(0, 28);
+            this.dgwMatrix.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgwMatrix.GridColor = System.Drawing.Color.White;
+            this.dgwMatrix.Location = new System.Drawing.Point(4, 108);
             this.dgwMatrix.Name = "dgwMatrix";
-            this.dgwMatrix.Size = new System.Drawing.Size(192, 182);
+            this.dgwMatrix.Size = new System.Drawing.Size(214, 205);
             this.dgwMatrix.TabIndex = 8;
+            this.dgwMatrix.Visible = false;
             this.dgwMatrix.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMatrix_CellValueChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 2);
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(30, 9);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 23);
+            this.button2.Size = new System.Drawing.Size(165, 39);
             this.button2.TabIndex = 9;
             this.button2.Text = "Завантажити граф з файлу";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.downloadFromFile_Click);
             // 
             // drawGraph
             // 
-            this.drawGraph.Location = new System.Drawing.Point(223, 2);
+            this.drawGraph.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.drawGraph.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.drawGraph.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.drawGraph.Font = new System.Drawing.Font("Technic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.drawGraph.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.drawGraph.Location = new System.Drawing.Point(30, 54);
             this.drawGraph.Name = "drawGraph";
-            this.drawGraph.Size = new System.Drawing.Size(165, 23);
+            this.drawGraph.Size = new System.Drawing.Size(165, 37);
             this.drawGraph.TabIndex = 10;
             this.drawGraph.Text = "Намалювати граф власноруч";
-            this.drawGraph.UseVisualStyleBackColor = true;
+            this.drawGraph.UseVisualStyleBackColor = false;
             this.drawGraph.Click += new System.EventHandler(this.drawGraph_Click);
             // 
             // bttnDeijkstra
             // 
-            this.bttnDeijkstra.Location = new System.Drawing.Point(12, 369);
+            this.bttnDeijkstra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttnDeijkstra.BackColor = System.Drawing.Color.White;
+            this.bttnDeijkstra.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bttnDeijkstra.Location = new System.Drawing.Point(244, 28);
             this.bttnDeijkstra.Name = "bttnDeijkstra";
-            this.bttnDeijkstra.Size = new System.Drawing.Size(138, 23);
+            this.bttnDeijkstra.Size = new System.Drawing.Size(138, 42);
             this.bttnDeijkstra.TabIndex = 11;
             this.bttnDeijkstra.Text = "Алгоритм Дейкстри";
-            this.bttnDeijkstra.UseVisualStyleBackColor = true;
+            this.bttnDeijkstra.UseVisualStyleBackColor = false;
             this.bttnDeijkstra.Click += new System.EventHandler(this.Deijkstra_Click);
             // 
             // bttnFloyd
             // 
-            this.bttnFloyd.Location = new System.Drawing.Point(168, 369);
+            this.bttnFloyd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttnFloyd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bttnFloyd.Location = new System.Drawing.Point(403, 28);
             this.bttnFloyd.Name = "bttnFloyd";
-            this.bttnFloyd.Size = new System.Drawing.Size(169, 23);
+            this.bttnFloyd.Size = new System.Drawing.Size(169, 42);
             this.bttnFloyd.TabIndex = 12;
             this.bttnFloyd.Text = "Алгоритм Флойда-Уоршалла";
             this.bttnFloyd.UseVisualStyleBackColor = true;
             // 
             // bttnFord
             // 
-            this.bttnFord.Location = new System.Drawing.Point(355, 369);
+            this.bttnFord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bttnFord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnFord.Location = new System.Drawing.Point(591, 28);
             this.bttnFord.Name = "bttnFord";
-            this.bttnFord.Size = new System.Drawing.Size(157, 23);
+            this.bttnFord.Size = new System.Drawing.Size(157, 42);
             this.bttnFord.TabIndex = 13;
             this.bttnFord.Text = "Алгоритм Белмана-Форда";
             this.bttnFord.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel1.Controls.Add(this.saveGraph);
+            this.panel1.Controls.Add(this.buttonClear);
+            this.panel1.Location = new System.Drawing.Point(228, 99);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(531, 431);
+            this.panel1.TabIndex = 14;
+            // 
+            // saveGraph
+            // 
+            this.saveGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveGraph.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.saveGraph.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveGraph.ForeColor = System.Drawing.Color.White;
+            this.saveGraph.Location = new System.Drawing.Point(377, 401);
+            this.saveGraph.Name = "saveGraph";
+            this.saveGraph.Size = new System.Drawing.Size(78, 30);
+            this.saveGraph.TabIndex = 8;
+            this.saveGraph.Text = "Зберегти";
+            this.saveGraph.UseVisualStyleBackColor = false;
+            this.saveGraph.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgwOutput);
+            this.panel2.Location = new System.Drawing.Point(4, 319);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(218, 203);
+            this.panel2.TabIndex = 15;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Controls.Add(this.drawGraph);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Location = new System.Drawing.Point(-5, -1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(767, 103);
+            this.panel3.TabIndex = 16;
+            // 
+            // dgwOutput
+            // 
+            this.dgwOutput.AllowUserToAddRows = false;
+            this.dgwOutput.BackgroundColor = System.Drawing.Color.White;
+            this.dgwOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwOutput.Location = new System.Drawing.Point(3, 3);
+            this.dgwOutput.Name = "dgwOutput";
+            this.dgwOutput.Size = new System.Drawing.Size(212, 171);
+            this.dgwOutput.TabIndex = 0;
+            this.dgwOutput.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 394);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(760, 528);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.bttnFord);
             this.Controls.Add(this.bttnFloyd);
             this.Controls.Add(this.bttnDeijkstra);
-            this.Controls.Add(this.drawGraph);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dgwMatrix);
-            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -156,6 +247,11 @@
         private System.Windows.Forms.Button bttnDeijkstra;
         private System.Windows.Forms.Button bttnFloyd;
         private System.Windows.Forms.Button bttnFord;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button saveGraph;
+        private System.Windows.Forms.DataGridView dgwOutput;
     }
 }
 
