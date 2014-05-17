@@ -39,23 +39,25 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.saveGraph = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.listOutput = new System.Windows.Forms.ListBox();
             this.dgwOutput = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(244, 131);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(244, 102);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(504, 362);
+            this.pictureBox1.Size = new System.Drawing.Size(504, 391);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -80,9 +82,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwMatrix.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgwMatrix.GridColor = System.Drawing.Color.White;
-            this.dgwMatrix.Location = new System.Drawing.Point(4, 108);
+            this.dgwMatrix.Location = new System.Drawing.Point(3, 9);
             this.dgwMatrix.Name = "dgwMatrix";
-            this.dgwMatrix.Size = new System.Drawing.Size(214, 205);
+            this.dgwMatrix.Size = new System.Drawing.Size(218, 176);
             this.dgwMatrix.TabIndex = 8;
             this.dgwMatrix.Visible = false;
             this.dgwMatrix.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwMatrix_CellValueChanged);
@@ -154,7 +156,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.saveGraph);
             this.panel1.Controls.Add(this.buttonClear);
             this.panel1.Location = new System.Drawing.Point(228, 99);
@@ -178,34 +180,46 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.dgwMatrix);
+            this.panel2.Controls.Add(this.listOutput);
             this.panel2.Controls.Add(this.dgwOutput);
-            this.panel2.Location = new System.Drawing.Point(4, 319);
+            this.panel2.Location = new System.Drawing.Point(4, 99);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 203);
+            this.panel2.Size = new System.Drawing.Size(234, 431);
             this.panel2.TabIndex = 15;
             // 
-            // panel3
+            // listOutput
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.panel3.Controls.Add(this.drawGraph);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(-5, -1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(767, 103);
-            this.panel3.TabIndex = 16;
+            this.listOutput.BackColor = System.Drawing.SystemColors.Control;
+            this.listOutput.FormattingEnabled = true;
+            this.listOutput.Location = new System.Drawing.Point(0, 191);
+            this.listOutput.Name = "listOutput";
+            this.listOutput.Size = new System.Drawing.Size(228, 43);
+            this.listOutput.TabIndex = 1;
             // 
             // dgwOutput
             // 
             this.dgwOutput.AllowUserToAddRows = false;
             this.dgwOutput.BackgroundColor = System.Drawing.Color.White;
             this.dgwOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwOutput.Location = new System.Drawing.Point(3, 3);
+            this.dgwOutput.Location = new System.Drawing.Point(3, 240);
             this.dgwOutput.Name = "dgwOutput";
-            this.dgwOutput.Size = new System.Drawing.Size(212, 171);
+            this.dgwOutput.Size = new System.Drawing.Size(215, 183);
             this.dgwOutput.TabIndex = 0;
             this.dgwOutput.Visible = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.SystemColors.Control;
+            this.panel3.Controls.Add(this.drawGraph);
+            this.panel3.Controls.Add(this.button2);
+            this.panel3.Location = new System.Drawing.Point(-5, -1);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(767, 103);
+            this.panel3.TabIndex = 16;
             // 
             // Form1
             // 
@@ -215,14 +229,13 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(760, 528);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.bttnFord);
             this.Controls.Add(this.bttnFloyd);
             this.Controls.Add(this.bttnDeijkstra);
-            this.Controls.Add(this.dgwMatrix);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -231,8 +244,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -252,6 +265,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button saveGraph;
         private System.Windows.Forms.DataGridView dgwOutput;
+        private System.Windows.Forms.ListBox listOutput;
     }
 }
 

@@ -50,13 +50,6 @@ namespace v2
             return graph;
         }
 
-        public static void tableSettings(DataGridView matrix)
-        {
-        //    matrix.Location = new Point(10, 50);
-        //    matrix.Width = 190;
-        //    matrix.AllowUserToAddRows = false;
-        }
-
         public static int numberEdge(int[][] graph)
         {
             int k = 0;
@@ -94,20 +87,13 @@ namespace v2
 
         public static void drawGraph(PictureBox panel, Graph graph)
         { 
-            //int size = 130;
             for (int i = 0; i < graph.data.Length; i++)
                 graph.nodes[i].drawNode(panel);
             for (int i = 0; i < graph.numberOfEdges; i++)
                 graph.edges[i].drawEdge(panel);
         }
 
-        //public static void clearAll(v2.Form1 form1, PictureBox pictureBox, DataGridView dgwMatrix, Graph graph)
-        //{
-        //    graph = null;
-        //    dgwMatrix.Rows.Clear();
-        //    pictureBox.Controls.Clear();
-        //    pictureBox.Refresh();
-        //    form1.Controls.Remove(dgwMatrix);
-        //}
+
+
     }
 }

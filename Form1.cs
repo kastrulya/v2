@@ -20,8 +20,6 @@ namespace v2
         public Form1()
         {
             InitializeComponent();
-            //createGraph = new CreateGraph(ref this.dgwMatrix);
-            //           Graph graph = new Graph();
         }
 
         private void buttonDeijkstra_Click(object sender, EventArgs e)
@@ -51,7 +49,6 @@ namespace v2
             dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
             SystemFunction.drawGraph(pictureBox1, graph);
             dgwMatrix.Visible = true;
-            //this.Controls.Add(dgwMatrix);
             pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             pictureBox1.MouseDoubleClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
         }
@@ -62,7 +59,6 @@ namespace v2
             pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             dgwMatrix.Visible = true;
-            //this.Controls.Add(dgwMatrix);
             createGraph = new CreateGraph(ref this.dgwMatrix);
             dgwMatrix.CellValueChanged += new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
             saveGraph.Visible = true;            
@@ -81,8 +77,15 @@ namespace v2
 
         private void Deijkstra_Click(object sender, EventArgs e)
         {
-            dgwOutput.Visible = true;
-            AlgDeijkstra.algDeijkstra(pictureBox1, graph, dgwOutput);
+            listOutput.Items.Clear();
+            if (graph != null)
+            {
+                dgwOutput.Visible = true;
+                listOutput.Visible = true;
+                AlgDeijkstra.algDeijkstra(pictureBox1, graph, dgwOutput, listOutput);
+            }
+            else 
+                listOutput.Items.Add(" Граф не завантажений ");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -99,10 +102,8 @@ namespace v2
             dgwMatrix.Visible = false;
             pictureBox1.Controls.Clear();
             pictureBox1.Refresh();
- //           this.Controls.Remove(dgwMatrix);
             dgwOutput.Rows.Clear();
             dgwOutput.Visible = false;
- //           this.Controls.Remove(dgwOutput);
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)//draw node

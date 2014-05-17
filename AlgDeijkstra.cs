@@ -28,7 +28,7 @@ namespace v2
             return minIndex;
         }
 
-        public static /*string*/int[] deijkstra(PictureBox pictureBox1, int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
+        public static int[] deijkstra(PictureBox pictureBox1, int currNode, ref Edge[] edge, ref Node[] node, int[][] graph)
         {
             int size = node.Length;
             int[][]visitedNode = new int[size][];
@@ -37,46 +37,42 @@ namespace v2
                                                 visited or not visited accordingly*/
             
             for (int i = 0; i < size; i++)
-            {
                 visitedNode[i][0] = Int32.MaxValue;
-            }
            
             visitedNode[currNode][0] = 0;
             node[currNode].label.Text = "0";
+            node[currNode].label.Refresh();
             do 
             {
                 for (int i = 0; i < size; i++)
                     if (graph[currNode][i] != -1 && visitedNode[i][1] != 1) // check if the nodes(currNode and i) are connected
                     {
-                        node[i].setColor(Color.YellowGreen);
-                        node[i].label.BackColor = Color.YellowGreen;
-                        edge[i].label.BackColor = Color.YellowGreen;
                         int possible = visitedNode[currNode][0] + graph[currNode][i];
-                        if (visitedNode[i][0] > possible)
+                        if (visitedNode[i][0] > possible)              
                         {
                             visitedNode[i][0] = possible;
                             node[i].label.Text = Convert.ToString(possible);
-                        }
-                        node[i].drawNode(pictureBox1);
-                        edge[i].drawEdge(pictureBox1);
-
-                        Thread.Sleep(250);
+                        }                      
+                        node[i].highLight(pictureBox1, Color.YellowGreen);
+                        node[i].label.Refresh();
+                        Thread.Sleep(500);
                     }
                 visitedNode[currNode][1] = 1;
+                node[currNode].highLight(pictureBox1, Color.DarkGreen);
                 currNode = findNextNode(visitedNode);
+
             }while(currNode != -1);
             
-            //string answer = "";
             int[] answer = new int[size];
             for (int i = 0; i < size; i++)
                 answer[i] = visitedNode[i][0];
-                //answer += Convert.ToString(visitedNode[i][0]) + " ";
-            return answer;// visitedNode;
+            return answer;
         }
 
-        public static void algDeijkstra(PictureBox pictureBox1, Graph graph, DataGridView matrix)
+        public static void algDeijkstra(PictureBox pictureBox1, Graph graph, DataGridView matrix, ListBox listOutput)
         {
-           // string[][] ans = new string[graph.data.Length];
+            listOutput.Items.Add(" Алгоритм Дейкстри. ");
+            listOutput.Items.Add(" Матриця найкоротших шляхів.");
             matrix.ColumnCount = graph.nodes.Length;
             for (int i = 0; i < graph.nodes.Length; i++)
             {
@@ -90,11 +86,12 @@ namespace v2
             {
                 Edge[] edge = graph.edges;
                 Node[] node = graph.nodes;
+                node[i].highLight(pictureBox1, Color.Brown);
                 ans[i] = deijkstra(pictureBox1, i, ref edge, ref node, graph.data);
                 for (int j = 0; j < ans.Length; j++)
                     matrix.Rows[i].Cells[j].Value = Convert.ToString(ans[i][j]);
-                //SystemFunction.drawGraph(pictureBox1, graph);
-                //Thread.Sleep(500);
+                Thread.Sleep(1000);
+                SystemFunction.drawGraph(pictureBox1, graph);
             }
         }
     }
