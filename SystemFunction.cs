@@ -11,10 +11,10 @@ namespace v2
 {
     class SystemFunction
     {
-        public static int[][] readFile()
+        public static int[][] readFile(string name)
         {
             StreamReader data;
-            string name = "data.txt";
+            //string name = "data.txt";
             try
             {
                 data = new StreamReader(name);

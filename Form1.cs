@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Threading;
 
 namespace v2
@@ -42,15 +43,39 @@ namespace v2
 
         private void downloadFromFile_Click(object sender, EventArgs e)
         {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = "";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            int[][] data = SystemFunction.readFile(openFileDialog1.FileName);
+                            dgwMatrix.Visible = true;
+                            graph = new Graph(this.dgwMatrix, data);
+                            dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
+                            SystemFunction.drawGraph(pictureBox1, graph);
+                            dgwMatrix.Visible = true;
+                            pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+                            pictureBox1.MouseDoubleClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
+                          }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("   Щось пішло не так. Спробуйте ще раз ");
+                }
+            }
+          
             //buttonClear.PerformClick();
             //buttonClear_Click();
-            dgwMatrix.Visible = true;
-            graph = new Graph(this.dgwMatrix, SystemFunction.readFile());
-            dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
-            SystemFunction.drawGraph(pictureBox1, graph);
-            dgwMatrix.Visible = true;
-            pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            pictureBox1.MouseDoubleClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
         }
 
         private void drawGraph_Click(object sender, EventArgs e)
@@ -104,6 +129,7 @@ namespace v2
             pictureBox1.Refresh();
             dgwOutput.Rows.Clear();
             dgwOutput.Visible = false;
+            listOutput.Items.Clear();
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)//draw node
@@ -143,5 +169,6 @@ namespace v2
         {
 
         }
+
     }
 }

@@ -52,6 +52,14 @@ namespace v2
             return null;
         }
 
+        public static void highlightEdge(PictureBox panel, Edge[] edges, Node node1, Node node2)
+        {
+            //Edge edge = findEdge(edges, node1, node2);
+            Edge edge = new Edge(ref node1, ref node2, findEdge(edges, node1, node2).weightEdge);
+            edge.colorEdge = Color.Green;
+            edge.drawEdge(panel);
+        }
+
         public static void putWeigth(PictureBox panel, Edge edge, int weigth)
         {
             edge.weightEdge = weigth;

@@ -22,6 +22,7 @@ namespace v2
             this.label = new Label();
             this.label.Text = text;
             this.label.Size = new Size(25, 15);
+ //           this.label.Parent = panel;
             this.label.BackColor = Color.Coral;
             this.colorNode = Color.Coral;
             this.location = location;
@@ -47,16 +48,10 @@ namespace v2
         {
             Node node = new Node(this.location, this.label.Text);
             node.Color = color;
+            node.label.BackColor = color;
             node.drawNode(panel);
+            node.label.Refresh();
         }
-
-        //public void chooseHighlight(PictureBox panel)
-        //{
-        //    Node node = new Node(this.location, this.label.Text);
-        //    node.Color = Color.Brown;
-        //    node.drawNode(panel);
-        //}
-
 
         public static Node findNodeWithCoord(Node[] nodes, float x, float y)
         {

@@ -47,6 +47,7 @@ namespace v2
                 for (int i = 0; i < size; i++)
                     if (graph[currNode][i] != -1 && visitedNode[i][1] != 1) // check if the nodes(currNode and i) are connected
                     {
+                        Edge.highlightEdge(pictureBox1, edge, node[currNode], node[i]);
                         int possible = visitedNode[currNode][0] + graph[currNode][i];
                         if (visitedNode[i][0] > possible)              
                         {
@@ -54,11 +55,14 @@ namespace v2
                             node[i].label.Text = Convert.ToString(possible);
                         }                      
                         node[i].highLight(pictureBox1, Color.YellowGreen);
+                        //node[i].label.BackColor = Color.YellowGreen;
                         node[i].label.Refresh();
                         Thread.Sleep(500);
                     }
                 visitedNode[currNode][1] = 1;
                 node[currNode].highLight(pictureBox1, Color.DarkGreen);
+                //node[currNode].label.BackColor = Color.DarkGreen;
+                //node[currNode].label.Refresh();
                 currNode = findNextNode(visitedNode);
 
             }while(currNode != -1);
