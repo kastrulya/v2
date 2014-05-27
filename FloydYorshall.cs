@@ -13,38 +13,35 @@ namespace v2
 
         public static void AlgFloydYorshall(PictureBox pictureBox1, Graph graph, DataGridView matrix, ListBox listOutput)
         {
+            listOutput.Items.Add(" Алгоритм Флойда-Уоршала. ");
+            listOutput.Items.Add(" Матриця найкоротших шляхів.");
+            matrix.ColumnCount = graph.nodes.Length;
+            for (int i = 0; i < graph.nodes.Length; i++)
+            {
+                matrix.Columns[i].Name = Convert.ToString(i);
+                matrix.Columns[i].Width = matrix.Width / (graph.nodes.Length + 1);
+                matrix.Rows.Add();
+            }
+
             int[][] D;
-            D = graph.getMatrixData();
+            D = graph.data;
             for (int i = 0; i < D.Length; i++)
                 for (int j = 0; j < D.Length; j++)
-                    if (D[i][j] == -1) D[i][j] = Int32.MaxValue;
-
+                    if (D[i][j] == -1) D[i][j] = 1000;
+            
             for (int k = 0; k < D.Length; k++)
                 for (int i = 0; i < D.Length; i++)
                     for (int j = 0; j < D.Length; j++)
                         D[i][j] = Math.Min(D[i][j], D[i][k] + D[k][j]);
-
-            listOutput.Items.Clear();
-            listOutput.Items.Add("Алгоритм Флойда-Уоршалла.");
-            listOutput.Items.Add("Матриця найкоротших шляхів. ");
-
-            matrix.Rows.Clear(); // можливо, потрібно заново створювати рядки і колонки бо матриця датагрідвью не створено
-
+           
             for (int i = 0; i < D.Length; i++)
-                for (int j = 0; j < D.Length; j++)
-                {
-                    matrix.Columns.Add("col" + Convert.ToString(i), Convert.ToString(i));
-                    matrix.Rows.Add();
-                }
+                D[i][i] = 0;
 
-
-            for (int i = 0; i < D.Length; i++)
-                for (int j = 0; j < D.Length; j++)
-                    matrix.Rows[i].Cells[j].Value = D[i][j];
-            //pictureBox1.Controls.Add(listOutput);
-            //pictureBox1.Controls.Add(matrix);
-            listOutput.Visible = true;
-            matrix.Visible = true;
+                for (int i = 0; i < D.Length; i++)
+                    for (int j = 0; j < D.Length; j++)
+                        if (D[i][j] != 1000)
+                            matrix.Rows[i].Cells[j].Value = D[i][j];
+                        else matrix.Rows[i].Cells[j].Value = '∞';
         }
     }
 }

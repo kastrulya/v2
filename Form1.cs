@@ -170,5 +170,24 @@ namespace v2
 
         }
 
+        private void алгоритмФлойдаУоршаллаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listOutput.Items.Clear();
+            if (graph != null)
+            {
+                dgwOutput.Visible = true;
+                listOutput.Visible = true;
+                FloydYorshall.AlgFloydYorshall(pictureBox1, graph, dgwOutput, listOutput);
+            }
+            else
+                listOutput.Items.Add(" Граф не завантажений ");
+        }
+
+        private void алгоритмДейкстриToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Theory theory = new Theory();
+            theory.ShowDialog();
+        }
+
     }
 }

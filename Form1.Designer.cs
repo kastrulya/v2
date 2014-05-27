@@ -227,6 +227,7 @@
             this.алгоритмФлойдаУоршаллаToolStripMenuItem.Name = "алгоритмФлойдаУоршаллаToolStripMenuItem";
             this.алгоритмФлойдаУоршаллаToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.алгоритмФлойдаУоршаллаToolStripMenuItem.Text = "Алгоритм Флойда-Уоршалла";
+            this.алгоритмФлойдаУоршаллаToolStripMenuItem.Click += new System.EventHandler(this.алгоритмФлойдаУоршаллаToolStripMenuItem_Click);
             // 
             // алгоритмБелманаФордаToolStripMenuItem
             // 
@@ -250,6 +251,7 @@
             this.алгоритмДейкстриToolStripMenuItem2.Name = "алгоритмДейкстриToolStripMenuItem2";
             this.алгоритмДейкстриToolStripMenuItem2.Size = new System.Drawing.Size(237, 22);
             this.алгоритмДейкстриToolStripMenuItem2.Text = "Алгоритм Дейкстри";
+            this.алгоритмДейкстриToolStripMenuItem2.Click += new System.EventHandler(this.алгоритмДейкстриToolStripMenuItem2_Click);
             // 
             // алгоритмФлойдаУоршаллаToolStripMenuItem1
             // 
