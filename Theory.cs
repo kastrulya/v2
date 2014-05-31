@@ -19,25 +19,65 @@ namespace v2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PZDeijkstra.Visible = true;
-            complexityDeijkstra.Visible = false;
-            mathDeijkstra.Visible = false;
+            PZDeijkstra.Show();
+            complexityDeijkstra.Hide();
+            mathDeijkstra.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PZDeijkstra.Visible = false;
-            complexityDeijkstra.Visible = false;
-            mathDeijkstra.Visible = true;
+            PZDeijkstra.Hide();
+            complexityDeijkstra.Hide();
+            mathDeijkstra.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PZDeijkstra.Visible = false;
-            complexityDeijkstra.Visible = true;
-            mathDeijkstra.Visible = false;
-            complexityDeijkstra.BringToFront();
-            complexityDeijkstra.Refresh();
+            PZDeijkstra.Hide();
+            complexityDeijkstra.Show();
+            mathDeijkstra.Hide();
         }
+
+
+        private void button3Yorshall_Click(object sender, EventArgs e)
+        {
+            PZYorshall.Hide();
+            ComplexityYorshall.Show();
+            AlgorithmYorshall.Hide();
+        }
+
+
+        private void button2Yorshall_Click(object sender, EventArgs e)
+        {
+            PZYorshall.Hide();
+            ComplexityYorshall.Hide();
+            AlgorithmYorshall.Show();
+        }
+
+        private void button1Yorshall_Click(object sender, EventArgs e)
+        {
+            PZYorshall.Show();
+            ComplexityYorshall.Hide();
+            AlgorithmYorshall.Hide();
+        }
+
+        public void deijkstraChoose()
+        {
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+        }
+
+        public void yorshallChoose()
+        {
+            this.button3.Click -= new System.EventHandler(this.button3_Click);
+            this.button2.Click -= new System.EventHandler(this.button2_Click);
+            this.button1.Click -= new System.EventHandler(this.button1_Click);
+
+            this.button3.Click += new System.EventHandler(this.button3Yorshall_Click);
+            this.button2.Click += new System.EventHandler(this.button2Yorshall_Click);
+            this.button1.Click += new System.EventHandler(this.button1Yorshall_Click);
+        }
+
     }
 }

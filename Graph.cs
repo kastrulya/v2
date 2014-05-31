@@ -29,7 +29,7 @@ namespace v2
                     data[i][j] = -1;
             for(int i = 0; i < edges.Length; i++)
                 data[Convert.ToInt32(edges[i].startNode.label.Text)]
-                    [Convert.ToInt32(edges[i].startNode.label.Text)] = edges[i].weightEdge;
+                    [Convert.ToInt32(edges[i].endNode.label.Text)] = edges[i].weightEdge;
         }
 
         private void fillMatrix(DataGridView matrix)
@@ -51,8 +51,6 @@ namespace v2
         public Graph(DataGridView inputMatrix, int[][] data )
         {
             this.data = data;
-//            inputMatrix = new DataGridView();
-           // SystemFunction.tableSettings(inputMatrix);
             fillMatrix(inputMatrix);
             point = SystemFunction.polarPoint(data, 130);
 

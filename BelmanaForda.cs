@@ -8,5 +8,8 @@ namespace v2
 {
     class BelmanaForda
     {
+        public void Algoritm_Forda()
+        {
+        }
     }
 }

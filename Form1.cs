@@ -73,9 +73,6 @@ namespace v2
                     MessageBox.Show("   Щось пішло не так. Спробуйте ще раз ");
                 }
             }
-          
-            //buttonClear.PerformClick();
-            //buttonClear_Click();
         }
 
         private void drawGraph_Click(object sender, EventArgs e)
@@ -96,8 +93,42 @@ namespace v2
             pictureBox1.MouseClick -= new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             dgwMatrix.CellValueChanged -= new DataGridViewCellEventHandler(this.matrix_CellValueChanged);
             dgwMatrix.ReadOnly = true;
-            saveGraph.Visible = false;
             graph = new Graph(createGraph.getNodes(), createGraph.getEdges());
+            StreamWriter sw = File.CreateText("j");
+
+
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+
+
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = "graph";
+            saveFileDialog1.DefaultExt = ".txt";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder sb = new StringBuilder();
+
+                
+                sb.AppendLine(graph.data.Length.ToString());
+                for (int i = 0; i < graph.data.Length; i++)
+                {
+                    for (int j = 0; j < graph.data.Length; j++)
+                    {
+                        if (graph.data[i][j] != -1)
+                        sb.AppendLine("" + (i+1).ToString() + " " + (j+1).ToString() + " " + graph.data[i][j]);
+                    }
+                }
+                sb.AppendLine();
+                sb.AppendLine();
+
+                using (StreamWriter outfile = new StreamWriter(saveFileDialog1.FileName, true))
+                {
+                    outfile.Write(sb.ToString());
+                }
+            }
         }
 
         private void Deijkstra_Click(object sender, EventArgs e)
@@ -186,7 +217,24 @@ namespace v2
         private void алгоритмДейкстриToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Theory theory = new Theory();
+            theory.deijkstraChoose();
             theory.ShowDialog();
+        }
+
+        private void алгоритмФлойдаУоршаллаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Theory theory = new Theory();
+            theory.yorshallChoose();
+            theory.ShowDialog();
+        }
+
+        private void порівяннняАлгоритмівToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Compare compare = new Compare();
+            if (File.Exists("deijkstraAlg.txt") != true)
+                AlgDeijkstra.algDeijkstra(pictureBox1, graph, dgwOutput, listOutput);
+            FloydYorshall.AlgFloydYorshall(pictureBox1, graph, dgwOutput, listOutput);
+            compare.ShowDialog();
         }
 
     }

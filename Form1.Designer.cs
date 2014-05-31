@@ -45,6 +45,7 @@
             this.algDeijkstraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмФлойдаУоршаллаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмБелманаФордаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.порівнянняАлгоритмівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.теоретичніВідомостіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДейкстриToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмФлойдаУоршаллаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -210,7 +211,8 @@
             this.алгоритмДейкстриToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.algDeijkstraToolStripMenuItem1,
             this.алгоритмФлойдаУоршаллаToolStripMenuItem,
-            this.алгоритмБелманаФордаToolStripMenuItem});
+            this.алгоритмБелманаФордаToolStripMenuItem,
+            this.порівнянняАлгоритмівToolStripMenuItem});
             this.алгоритмДейкстриToolStripMenuItem.Name = "алгоритмДейкстриToolStripMenuItem";
             this.алгоритмДейкстриToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.алгоритмДейкстриToolStripMenuItem.Text = "Алгоритми..";
@@ -235,6 +237,14 @@
             this.алгоритмБелманаФордаToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.алгоритмБелманаФордаToolStripMenuItem.Text = "Алгоритм Белмана-Форда";
             // 
+            // порівнянняАлгоритмівToolStripMenuItem
+            // 
+            this.порівнянняАлгоритмівToolStripMenuItem.Name = "порівнянняАлгоритмівToolStripMenuItem";
+            this.порівнянняАлгоритмівToolStripMenuItem.ShowShortcutKeys = false;
+            this.порівнянняАлгоритмівToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.порівнянняАлгоритмівToolStripMenuItem.Text = "Порівняння алгоритмів";
+            this.порівнянняАлгоритмівToolStripMenuItem.Click += new System.EventHandler(this.порівяннняАлгоритмівToolStripMenuItem_Click);
+            // 
             // теоретичніВідомостіToolStripMenuItem
             // 
             this.теоретичніВідомостіToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -258,6 +268,7 @@
             this.алгоритмФлойдаУоршаллаToolStripMenuItem1.Name = "алгоритмФлойдаУоршаллаToolStripMenuItem1";
             this.алгоритмФлойдаУоршаллаToolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
             this.алгоритмФлойдаУоршаллаToolStripMenuItem1.Text = "Алгоритм Флойда-Уоршалла";
+            this.алгоритмФлойдаУоршаллаToolStripMenuItem1.Click += new System.EventHandler(this.алгоритмФлойдаУоршаллаToolStripMenuItem1_Click);
             // 
             // алгоритмБелманаФордаToolStripMenuItem1
             // 
@@ -270,6 +281,7 @@
             this.порівяннняАлгоритмівToolStripMenuItem.Name = "порівяннняАлгоритмівToolStripMenuItem";
             this.порівяннняАлгоритмівToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.порівяннняАлгоритмівToolStripMenuItem.Text = "Порівянння алгоритмів";
+            this.порівяннняАлгоритмівToolStripMenuItem.Click += new System.EventHandler(this.порівяннняАлгоритмівToolStripMenuItem_Click);
             // 
             // проПрограмуToolStripMenuItem
             // 
@@ -332,6 +344,7 @@
         private System.Windows.Forms.ToolStripMenuItem алгоритмБелманаФордаToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem порівяннняАлгоритмівToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem порівнянняАлгоритмівToolStripMenuItem;
     }
 }
 

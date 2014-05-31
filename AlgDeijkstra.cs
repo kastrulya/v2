@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
+
 namespace v2
 {
     class AlgDeijkstra
     {
+        static int count = 0;
+       
         static int findNextNode(int[][] labels)
         {
             /* return next node for visiting (not yet visited and minimal)
@@ -53,16 +57,14 @@ namespace v2
                         {
                             visitedNode[i][0] = possible;
                             node[i].label.Text = Convert.ToString(possible);
+                            count++;
                         }                      
                         node[i].highLight(pictureBox1, Color.YellowGreen);
-                        //node[i].label.BackColor = Color.YellowGreen;
                         node[i].label.Refresh();
                         Thread.Sleep(500);
                     }
                 visitedNode[currNode][1] = 1;
                 node[currNode].highLight(pictureBox1, Color.DarkGreen);
-                //node[currNode].label.BackColor = Color.DarkGreen;
-                //node[currNode].label.Refresh();
                 currNode = findNextNode(visitedNode);
 
             }while(currNode != -1);
@@ -75,6 +77,7 @@ namespace v2
 
         public static void algDeijkstra(PictureBox pictureBox1, Graph graph, DataGridView matrix, ListBox listOutput)
         {
+            count = 0;
             listOutput.Items.Add(" Алгоритм Дейкстри. ");
             listOutput.Items.Add(" Матриця найкоротших шляхів.");
             matrix.ColumnCount = graph.nodes.Length;
@@ -97,6 +100,17 @@ namespace v2
                 Thread.Sleep(1000);
                 SystemFunction.drawGraph(pictureBox1, graph);
             }
+
+            StreamWriter sw;
+            if (File.Exists("deijkstraAlg.txt") == true)
+                File.Delete("deijkstraAlg.txt");
+            sw = File.CreateText("deijkstraAlg.txt");
+            sw.WriteLine(Convert.ToString(graph.data.Length));
+            for (int i = 0; i < ans.Length; i++)
+                for (int j = 0; j < ans.Length; j++)
+                    sw.WriteLine(ans[i][j]);
+            sw.WriteLine(count);
+            sw.Close();
         }
     }
 }
