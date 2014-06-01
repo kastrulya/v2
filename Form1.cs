@@ -43,6 +43,11 @@ namespace v2
 
         private void downloadFromFile_Click(object sender, EventArgs e)
         {
+            AboutProgram.Hide();
+            aboutAuthorPanel.Hide();
+            buttonClear.Show();
+            paintPanel.Show();
+
             Stream myStream = null;
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = "";
@@ -77,6 +82,10 @@ namespace v2
 
         private void drawGraph_Click(object sender, EventArgs e)
         {
+            AboutProgram.Hide();
+            paintPanel.Show();
+            buttonClear.Show();
+
             dgwMatrix.Visible = true;
             pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
@@ -146,7 +155,9 @@ namespace v2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            paintPanel.Hide();
+            AboutProgram.Show();
+            aboutAuthorPanel.Show();
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -237,5 +248,17 @@ namespace v2
             compare.ShowDialog();
         }
 
+        private void bttnNext_Click(object sender, EventArgs e)
+        {
+            aboutProgramPanel.Hide();
+            howToUsePanel.Show();
+        }
+
+        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            paintPanel.Hide();
+            AboutProgram.Show();
+            aboutAuthorPanel.Show();
+        }
     }
 }

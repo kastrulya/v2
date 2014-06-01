@@ -117,8 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Програма створена для знаходження найкоротших шляхів матриць
+і демонстрації роботи алгоритмів. 
+
+Представлені три алгоритми: Дейкстри, Флойда-Уоршала, Белмана-Форда.
+
+Ви маєте можливість перевірити роботу вказаних алгоритмів на власних графах,
+а також ознайомитись з базовою теорією, що стосується даних алгоритмів.
+
+Для короткого ознайомлення з програмою натисніть стрілочку.
+</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Про автора
+
+Григор'єва Юлія Вадимівна
+студентка групи ІС-23
+2 курс, кафедра АСОІУ, ФІОТ
+               НТУУ"КПІ"
+                      
+            
+Ви можете зв'язатись з автором
+ за телефоном або надіславши  
+електронне повідомлення.
+
+
+номер телефону:  0939547304
+e-mail: julia.hrihorieva@gmail.com
+</value>
+  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
