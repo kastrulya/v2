@@ -77,6 +77,38 @@ namespace v2
             this.button3.Click += new System.EventHandler(this.button3Yorshall_Click);
             this.button2.Click += new System.EventHandler(this.button2Yorshall_Click);
             this.button1.Click += new System.EventHandler(this.button1Yorshall_Click);
+
+            DeijkstraPanel.Hide();
+            YorshallPanel.Show();
+            PZYorshall.Show();
+        }
+
+        private void button3Belmana_Click(object sender, EventArgs e)
+        {
+            PZBelmana.Hide();
+            ComplexityBelmana.Show();
+            AlgoritmBelmana.Hide();
+        }
+
+        private void button2Belmana_Click(object sender, EventArgs e)
+        {
+            PZBelmana.Hide();
+            ComplexityBelmana.Hide();
+            AlgoritmBelmana.Show();
+        }
+
+        private void button1Belmana_Click(object sender, EventArgs e)
+        {
+            PZBelmana.Show();
+            ComplexityBelmana.Hide();
+            AlgoritmBelmana.Hide();
+        }
+
+        public void belmanaChoose()
+        {
+            this.button3.Click += new System.EventHandler(this.button3Belmana_Click);
+            this.button2.Click += new System.EventHandler(this.button2Belmana_Click);
+            this.button1.Click += new System.EventHandler(this.button1Belmana_Click);           
         }
 
     }

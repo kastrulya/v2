@@ -14,7 +14,6 @@ namespace v2
         public Label label;
         public PointF location;
         public static float size = 40; // size of node
-
         public Node() { }
 
         public Node(PointF location, string text)

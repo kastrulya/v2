@@ -244,7 +244,10 @@ namespace v2
             Compare compare = new Compare();
             if (File.Exists("deijkstraAlg.txt") != true)
                 AlgDeijkstra.algDeijkstra(pictureBox1, graph, dgwOutput, listOutput);
-            FloydYorshall.AlgFloydYorshall(pictureBox1, graph, dgwOutput, listOutput);
+            if (File.Exists("floydaAlg.txt") != true)
+                FloydYorshall.AlgFloydYorshall(pictureBox1, graph, dgwOutput, listOutput);
+            if (File.Exists("fordaAlg.txt") != true)
+                BelmanaForda.Algoritm_Forda(pictureBox1, graph, dgwOutput, listOutput);
             compare.ShowDialog();
         }
 
@@ -259,6 +262,26 @@ namespace v2
             paintPanel.Hide();
             AboutProgram.Show();
             aboutAuthorPanel.Show();
+        }
+
+        private void алгоритмБелманаФордаToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Theory theory = new Theory();
+            theory.belmanaChoose();
+            theory.ShowDialog();
+        }
+
+        private void FordaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listOutput.Items.Clear();
+            if (graph != null)
+            {
+                  dgwOutput.Visible = true;
+//                listOutput.Visible = true;
+                BelmanaForda.Algoritm_Forda(pictureBox1, graph, dgwOutput, listOutput);
+            }
+            else
+                listOutput.Items.Add(" Граф не завантажений ");
         }
     }
 }

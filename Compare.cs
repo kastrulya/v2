@@ -49,7 +49,7 @@ namespace v2
 
             pasteAnswer(dataGridView2, label5, "floydaAlg.txt");
 
-            pasteAnswer(dataGridView3, label6, "floydaAlg.txt");
+            pasteAnswer(dataGridView3, label6, "fordaAlg.txt");
         }
     }
 }

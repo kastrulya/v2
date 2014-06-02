@@ -33,9 +33,10 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.dgwMatrix = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.paintPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AboutProgram = new System.Windows.Forms.Panel();
             this.aboutProgramPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bttnNext = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +50,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.saveGraph = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.aboutAuthorPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.listOutput = new System.Windows.Forms.ListBox();
             this.dgwOutput = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -59,7 +62,7 @@
             this.алгоритмДейкстриToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.algDeijkstraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмФлойдаУоршаллаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.алгоритмБелманаФордаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FordaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.порівнянняАлгоритмівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.теоретичніВідомостіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.алгоритмДейкстриToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,14 +71,12 @@
             this.порівяннняАлгоритмівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.paintPanel = new System.Windows.Forms.Panel();
-            this.aboutAuthorPanel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).BeginInit();
             this.panel1.SuspendLayout();
+            this.paintPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AboutProgram.SuspendLayout();
             this.aboutProgramPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnNext)).BeginInit();
             this.howToUsePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -83,11 +84,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
+            this.aboutAuthorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).BeginInit();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.paintPanel.SuspendLayout();
-            this.aboutAuthorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonClear
@@ -131,6 +131,24 @@
             this.panel1.Size = new System.Drawing.Size(602, 486);
             this.panel1.TabIndex = 14;
             // 
+            // paintPanel
+            // 
+            this.paintPanel.Controls.Add(this.pictureBox1);
+            this.paintPanel.Location = new System.Drawing.Point(16, 27);
+            this.paintPanel.Name = "paintPanel";
+            this.paintPanel.Size = new System.Drawing.Size(574, 423);
+            this.paintPanel.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(540, 395);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // AboutProgram
             // 
             this.AboutProgram.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -151,16 +169,6 @@
             this.aboutProgramPanel.Name = "aboutProgramPanel";
             this.aboutProgramPanel.Size = new System.Drawing.Size(533, 345);
             this.aboutProgramPanel.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(540, 395);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // bttnNext
             // 
@@ -302,6 +310,24 @@
             this.panel2.Size = new System.Drawing.Size(234, 486);
             this.panel2.TabIndex = 15;
             // 
+            // aboutAuthorPanel
+            // 
+            this.aboutAuthorPanel.Controls.Add(this.label6);
+            this.aboutAuthorPanel.Location = new System.Drawing.Point(0, 0);
+            this.aboutAuthorPanel.Name = "aboutAuthorPanel";
+            this.aboutAuthorPanel.Size = new System.Drawing.Size(234, 486);
+            this.aboutAuthorPanel.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(5, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(223, 361);
+            this.label6.TabIndex = 0;
+            this.label6.Text = resources.GetString("label6.Text");
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // listOutput
             // 
             this.listOutput.BackColor = System.Drawing.SystemColors.Control;
@@ -376,7 +402,7 @@
             this.алгоритмДейкстриToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.algDeijkstraToolStripMenuItem1,
             this.алгоритмФлойдаУоршаллаToolStripMenuItem,
-            this.алгоритмБелманаФордаToolStripMenuItem,
+            this.FordaToolStripMenuItem,
             this.порівнянняАлгоритмівToolStripMenuItem});
             this.алгоритмДейкстриToolStripMenuItem.Name = "алгоритмДейкстриToolStripMenuItem";
             this.алгоритмДейкстриToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
@@ -396,11 +422,12 @@
             this.алгоритмФлойдаУоршаллаToolStripMenuItem.Text = "Алгоритм Флойда-Уоршалла";
             this.алгоритмФлойдаУоршаллаToolStripMenuItem.Click += new System.EventHandler(this.алгоритмФлойдаУоршаллаToolStripMenuItem_Click);
             // 
-            // алгоритмБелманаФордаToolStripMenuItem
+            // FordaToolStripMenuItem
             // 
-            this.алгоритмБелманаФордаToolStripMenuItem.Name = "алгоритмБелманаФордаToolStripMenuItem";
-            this.алгоритмБелманаФордаToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.алгоритмБелманаФордаToolStripMenuItem.Text = "Алгоритм Белмана-Форда";
+            this.FordaToolStripMenuItem.Name = "FordaToolStripMenuItem";
+            this.FordaToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.FordaToolStripMenuItem.Text = "Алгоритм Белмана-Форда";
+            this.FordaToolStripMenuItem.Click += new System.EventHandler(this.FordaToolStripMenuItem_Click);
             // 
             // порівнянняАлгоритмівToolStripMenuItem
             // 
@@ -440,6 +467,7 @@
             this.алгоритмБелманаФордаToolStripMenuItem1.Name = "алгоритмБелманаФордаToolStripMenuItem1";
             this.алгоритмБелманаФордаToolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
             this.алгоритмБелманаФордаToolStripMenuItem1.Text = "Алгоритм Белмана-Форда";
+            this.алгоритмБелманаФордаToolStripMenuItem1.Click += new System.EventHandler(this.алгоритмБелманаФордаToolStripMenuItem1_Click);
             // 
             // порівяннняАлгоритмівToolStripMenuItem
             // 
@@ -454,32 +482,6 @@
             this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             this.проПрограмуToolStripMenuItem.Click += new System.EventHandler(this.проПрограмуToolStripMenuItem_Click);
-            // 
-            // paintPanel
-            // 
-            this.paintPanel.Controls.Add(this.pictureBox1);
-            this.paintPanel.Location = new System.Drawing.Point(16, 27);
-            this.paintPanel.Name = "paintPanel";
-            this.paintPanel.Size = new System.Drawing.Size(574, 423);
-            this.paintPanel.TabIndex = 9;
-            // 
-            // aboutAuthorPanel
-            // 
-            this.aboutAuthorPanel.Controls.Add(this.label6);
-            this.aboutAuthorPanel.Location = new System.Drawing.Point(0, 0);
-            this.aboutAuthorPanel.Name = "aboutAuthorPanel";
-            this.aboutAuthorPanel.Size = new System.Drawing.Size(234, 486);
-            this.aboutAuthorPanel.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(5, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(223, 361);
-            this.label6.TabIndex = 0;
-            this.label6.Text = resources.GetString("label6.Text");
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -499,9 +501,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwMatrix)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.paintPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.AboutProgram.ResumeLayout(false);
             this.aboutProgramPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bttnNext)).EndInit();
             this.howToUsePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -509,13 +512,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.aboutAuthorPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwOutput)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.paintPanel.ResumeLayout(false);
-            this.aboutAuthorPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -538,7 +540,7 @@
         private System.Windows.Forms.ToolStripMenuItem алгоритмДейкстриToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem algDeijkstraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem алгоритмФлойдаУоршаллаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem алгоритмБелманаФордаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FordaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem теоретичніВідомостіToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem алгоритмДейкстриToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem алгоритмФлойдаУоршаллаToolStripMenuItem1;
